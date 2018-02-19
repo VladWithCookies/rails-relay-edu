@@ -1,0 +1,45 @@
+/* Custom */
+body {
+  background-color: #fafafa;
+}
+.main-content {
+  margin: 1rem 18rem 0 18rem;
+}
+.logo {
+  padding-top: 1rem !important;
+  font-family: 'Engagement', cursive !important;
+  font-size: 2.5rem !important
+}
+.user-data {
+  margin-bottom: 2rem;
+  h5 {
+    margin-top: 10px !important;
+  }
+}
+
+/* Semantic */
+body {
+  height: auto !important;
+}
+.card, .button, .input, .item {
+  border-radius: 0 !important;
+}
+.ui.vertical.menu {
+  background-color: #F5F5F5;
+  .item i {
+    padding-right: 1.5rem;
+  }
+}
+.pointing .item {
+  font-weight: bold !important;
+}
+.active.item {
+  color: #00b5ad !important;
+  border-color: #00b5ad !important;
+}
+.ui.fluid.editor {
+  .image img {
+    max-height: 75vh;
+    object-fit: contain;
+  }
+}

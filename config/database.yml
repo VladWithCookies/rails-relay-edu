@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  pool: 5
+
+development:
+  <<: *default
+  database: isomorphic-edu_development
+
+test:
+  <<: *default
+  database: isomorphic-edu_test
+
+production:
+  <<: *default
+  database: isomorphic-edu_production
+  username: isomorphic-edu
+  password: <%= ENV['ISOMORPHIC-EDU_DATABASE_PASSWORD'] %>
