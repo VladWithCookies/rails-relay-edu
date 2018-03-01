@@ -25,6 +25,6 @@
     "webpack-dev-server": "^2.10.1"
   },
   "scripts": {
-    "relay": "relay-compiler --src ./app/javascript --schema ./app/javascript/packs/schema.json"
+    "relay": "relay-compiler --src ./app/javascript --schema ./app/javascript/packs/schema.graphql --extensions=jsx"
   }
 }

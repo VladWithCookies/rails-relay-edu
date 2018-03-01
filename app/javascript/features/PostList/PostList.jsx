@@ -1,14 +1,20 @@
 import React from 'react'
-import { QueryRenderer } from 'react-relay'
+import { QueryRenderer, graphql } from 'react-relay'
 import environment from 'environment'
-import { PostsQuery } from 'graphql/queries/PostsQuery'
 import PostList from './components/PostList'
-import Post from './components/Post'
 
 const PostListContainer = () =>
   <QueryRenderer
     environment={environment}
-    query={PostsQuery}
+    query={
+      graphql`
+        query PostListQuery {
+          posts {
+            ...PostList_posts
+          }
+        }
+      `
+    }
     variables={{}}
     render={({error, props}) => {
       if (error) {

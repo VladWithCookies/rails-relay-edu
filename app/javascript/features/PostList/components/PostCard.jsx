@@ -1,12 +1,13 @@
 import React from 'react'
+import { createFragmentContainer, graphql } from 'react-relay'
 import moment from 'moment'
 
-const Post = ({ created_at }) =>
+const PostCard = ({ post }) =>
   <div className='column'>
     <div className='ui fluid card'>
       <div className='content'>
         <div className='right floated meta'>
-          {moment(created_at).fromNow()}
+          {moment(post.created_at).fromNow()}
         </div>
         <img className='ui avatar image' src='https://picsum.photos/200' /> Elliot
       </div>
@@ -24,4 +25,11 @@ const Post = ({ created_at }) =>
     </div>
   </div>
 
-export default Post
+export default createFragmentContainer(
+  PostCard,
+  graphql`
+    fragment PostCard_post on Post {
+      created_at
+    }
+  `
+)
