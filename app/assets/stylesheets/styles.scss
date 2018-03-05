@@ -3,7 +3,7 @@ body {
   background-color: #fafafa;
 }
 .main-content {
-  margin: 1rem 18rem 0 18rem;
+  margin: 1rem 3rem 0 18rem;
 }
 .logo {
   padding-top: 1rem !important;
@@ -21,7 +21,7 @@ body {
 body {
   height: auto !important;
 }
-.card, .button, .input, .item {
+.card, .button, .input, .item, textarea {
   border-radius: 0 !important;
 }
 .ui.vertical.menu {
@@ -42,4 +42,7 @@ body {
     max-height: 70vh;
     object-fit: contain;
   }
+}
+.ui.text.menu {
+  margin: 0;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { createFragmentContainer, graphql } from 'react-relay'
 import moment from 'moment'
+import { Link } from 'found'
 
 const PostCard = ({ post }) =>
   <div className='column'>
@@ -11,9 +12,9 @@ const PostCard = ({ post }) =>
         </div>
         <img className='ui avatar image' src='https://picsum.photos/200' /> Elliot
       </div>
-      <div className='image'>
+      <Link to={`/posts/${post.id}`} className='image'>
         <img src='https://picsum.photos/500' />
-      </div>
+      </Link>
       <div className='content'>
         <span className='right floated'>
           <i className='heart outline like icon' />
@@ -29,6 +30,7 @@ export default createFragmentContainer(
   PostCard,
   graphql`
     fragment PostCard_post on Post {
+      id
       created_at
     }
   `
