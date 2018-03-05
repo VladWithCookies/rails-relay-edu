@@ -46,3 +46,6 @@ body {
 .ui.text.menu {
   margin: 0;
 }
+.ui.card>:first-child {
+  border-radius: 0 !important;
+}

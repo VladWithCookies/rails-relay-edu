@@ -1,6 +1,7 @@
 UserType = GraphQL::ObjectType.define do
   name 'User'
-
+  interfaces [NodeIdentification.interface]
+  global_id_field :id
   field :id, !types.ID
   field :username, !types.String
   field :first_name, !types.String

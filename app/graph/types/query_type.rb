@@ -1,6 +1,8 @@
 QueryType = GraphQL::ObjectType.define do
   name 'Query'
 
+  field :node, field: NodeIdentification.field
+
   field :viewer, UserType do
     resolve -> (obj, args, ctx) { User.last }
   end

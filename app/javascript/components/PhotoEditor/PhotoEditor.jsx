@@ -6,9 +6,10 @@ const PhotoEditor = ({ posts }) =>
     <div className='content'>
       <div className='header'>Photo title</div>
     </div>
-    <div className='image'>
+    {/* <div className='image'>
       <img src='https://picsum.photos/1000' />
-    </div>
+    </div> */}
+    <input type='file' />
     <div className='content'>
       <div className='ui secondary pointing menu'>
         <a className='active item'>
