@@ -1,4 +1,5 @@
 import React from 'react'
+import { createFragmentContainer, graphql } from 'react-relay'
 import Sidebar from './Sidebar'
 
 const MainLayout = ({ children }) =>
@@ -9,4 +10,11 @@ const MainLayout = ({ children }) =>
     </div>
   </div>
 
-export default MainLayout
+export default createFragmentContainer(
+  MainLayout,
+  graphql`
+    fragment MainLayout_viewer on User {
+      id
+    }
+  `
+)

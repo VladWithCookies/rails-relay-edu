@@ -1,15 +1,39 @@
 import React from 'react'
-import { Switch, Route } from 'react-router'
+import { Route, makeRouteConfig } from 'found'
 
 import MainLayout from 'components/MainLayout'
-import PostList from 'features/PostList/PostList'
-import PhotoEditor from 'features/PhotoEditor/PhotoEditor'
+import PostList from 'components/PostList/PostList'
+import PhotoEditor from 'components/PhotoEditor/PhotoEditor'
 
-export default (
-  <MainLayout>
-    <Switch>
-      <Route path='/' exact component={PostList} />
-      <Route path='/editor' component={PhotoEditor} />
-    </Switch>
-  </MainLayout>
+export default  makeRouteConfig(
+  <Route
+    path='/'
+    Component={MainLayout}
+    query={
+      graphql`
+        query routes_MainLayoutQuery {
+          viewer {
+            ...MainLayout_viewer
+          }
+        }
+      `
+    }
+  >
+    <Route
+      Component={PostList}
+      query={
+        graphql`
+          query routes_PostListQuery {
+            posts {
+              ...PostList_posts
+            }
+          }
+        `
+      }
+    />
+    <Route
+      path='editor'
+      Component={PhotoEditor}
+    />
+  </Route>
 )

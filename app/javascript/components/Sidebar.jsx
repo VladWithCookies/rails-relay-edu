@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink as Link } from 'react-router-dom'
+import { Link } from 'found'
 
 const Sidebar = () =>
   <div className='ui left fixed borderless vertical menu'>
@@ -8,7 +8,7 @@ const Sidebar = () =>
       <img className='ui centered tiny circular image' src='https://picsum.photos/400' />
       <h5 className='ui centered grey header'>Vlad V</h5>
     </div>
-    <Link to='/' exact className='item'>
+    <Link to='/' exact activeClassName='active' className='item'>
       <div>
         <i className='retro camera icon' />
         Gallery
