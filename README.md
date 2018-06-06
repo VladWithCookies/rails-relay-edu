@@ -1,24 +1,25 @@
-# README
+## Rails Relay integration
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Add this to your Gemfile: 
 
-Things you may want to cover:
+```ruby
+gem 'graphql'
+gem 'graphql-relay'
+```
 
-* Ruby version
+2. Create your grpahql schema (example at ```app/graph```)
+3. Create ```graphqls_controller```:
 
-* System dependencies
+```ruby
+class Api::V1::GraphqlsController < ApplicationController
+  def create
+    query_string = params[:query]
+    query_variables = params[:variables] || {}
+    context = {}
+    result = Schema.execute(query_string, variables: query_variables, context: context)
+    render json: result
+  end
+end
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. 
